@@ -1,10 +1,10 @@
 import { Middleware } from 'request-middleware-pipeline';
 import Contracts from "miniapp-middleware-contracts";
 import extend from "just-extend";
-import join from "join-path";
+import join from "url-join";
 
 const defaultOptions = {
-    basepath: "",
+    basePath: "",
 };
 
 const privateNames = {
@@ -23,9 +23,9 @@ export default class extends Middleware {
         let url = middlewareContext.data[Contracts.WxRequestOptions].url;
         if (!!url || url === "") {
             if (url.lastIndexOf("https://", 0) !== 0 && url.lastIndexOf("http://", 0) !== 0) {
-                url = join(this[privateNames.basepath], url);
+                url = join(this[privateNames.options].basePath, url);
             }
-            middlewareContext.data[Contracts.WxRequestOptions] = url;
+            middlewareContext.data[Contracts.WxRequestOptions].url = url;
         }
 
         await this.next(middlewareContext);

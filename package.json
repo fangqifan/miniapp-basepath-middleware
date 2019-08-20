@@ -1,6 +1,6 @@
 {
   "name": "miniapp-basepath-middleware",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "middleware for miniapp request base path.",
   "main": "dist/index.js",
   "scripts": {
@@ -55,6 +55,6 @@
     "just-extend": "^3.0.0",
     "miniapp-middleware-contracts": "^0.2.0",
     "request-middleware-pipeline": "^0.1.0",
-    "join-path": "^1.1.1"
+    "url-join": "^4.0.0"
   }
 }
